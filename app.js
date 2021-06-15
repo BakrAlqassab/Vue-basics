@@ -4,35 +4,49 @@ const app = Vue.createApp({
       counter: 1,
       name: "",
       confirmedName: "",
+      fullname: "",
     };
   },
-  computed: {
-    fullname() {
 
-      console.log(' Running ........');
-
-      if(this.name === '') {
-        return '';
+  watch: {
+    counter(newValue, oldValue) {
+      console.log("newValue");
+      console.log(newValue);
+      console.log("oldValue");
+      console.log(oldValue);
+      if (newValue > 50) {
+        const that = this;
+        setTimeout(function () {
+          that.counter = 0;
+        }, 500);
       }
-      return this.name + '  ' + 'Al-Qassab'
-
     },
+    // name(newValue, oldValue) {
+    //   console.log("newValue");
+    //   console.log(newValue);
+    //   console.log("oldValue");
+    //   console.log(oldValue);
+    // },
+  },
+  computed: {
+    // fullname() {
+    //   console.log(" Running ........");
+    //   if (this.name === "") {
+    //     return "";
+    //   }
+    //   return this.name + "  " + "Al-Qassab";
+    // },
   },
   methods: {
-
     outputFullName() {
+      console.log(" Running .......methods.");
 
-
-
-      console.log(' Running .......methods.');
-
-      if(this.name === '') {
-        return '';
+      if (this.name === "") {
+        return "";
       }
-      return this.name + '  ' + 'Al-Qassab'
-
+      return this.name + "  " + "Al-Qassab";
     },
-    
+
     addCounter(num) {
       this.counter = this.counter + num;
     },
